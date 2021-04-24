@@ -31,7 +31,7 @@ object Deps {
   def jansi = "org.fusesource.jansi" % "jansi" % "1.18"
   def jeromq = "org.zeromq" % "jeromq" % "0.5.1"
   def jvmRepr = "com.github.jupyter" % "jvm-repr" % "0.4.0"
-  def metabrowseServer = "org.scalameta" %% "metabrowse-server" % "0.2.2"
+  def metabrowseServer = "org.scalameta" %% "metabrowse-server" % "0.2.2" exclude("com.fasterxml.jackson.core", "jackson-databind") exclude("org.json4s", "json4s-jackson_2.11")
   def scalaReflect = setting("org.scala-lang" % "scala-reflect" % scalaVersion.value)
   def scalaRx = "com.lihaoyi" %% "scalarx" % "0.4.0"
   def scalatags = setting {

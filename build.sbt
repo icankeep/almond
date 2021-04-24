@@ -128,6 +128,8 @@ lazy val `scala-interpreter` = project
   .dependsOn(interpreter, `scala-kernel-api`, kernel % "test->test", `almond-rx` % Test)
   .settings(
     shared,
+    libraryDependencies += "com.fasterxml.jackson.core" % "jackson-databind" % "2.6.5",
+    libraryDependencies += "org.json4s" % "json4s-jackson_2.11" % "3.2.11",
     libraryDependencies ++= {
       CrossVersion.partialVersion(scalaBinaryVersion.value) match {
         case Some((2, n)) if n == 11 || n == 12 =>
@@ -248,6 +250,8 @@ jupyterStart := {
     "argv": [
       "$pack0",
       "--metabrowse", "--log", "info",
+      "--extra-repository",
+      "https://maven.aliyun.com/repository/public/",
       "--connection-file", "{connection_file}"
     ]
   }"""
